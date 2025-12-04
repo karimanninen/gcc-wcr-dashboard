@@ -73,8 +73,8 @@ ui <- page_fillable(
       # ====== SECTION 1: HERO ======
       div(class = "story-section section-hero", id = "section-hero",
           # Logo - LARGE WHITE (dark background)
-          div(class = "logo-header",
-              tags$img(src = logo_white, class = "gccstat-logo large", alt = "GCC-Stat Logo")
+          div(style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
+              tags$img(src = logo_white, style = "max-width: 200px; height: auto;", alt = "GCC-Stat Logo")
           ),
           div(class = "content-wrapper centered",
               div(class = "narrative-text",
@@ -95,8 +95,8 @@ ui <- page_fillable(
       # ====== SECTION 2: GLOBAL RANKING ======
       div(class = "story-section section-light", id = "section-ranking",
           # Logo - SMALL BLACK (light background)
-          div(class = "logo-header",
-              tags$img(src = logo_black, class = "gccstat-logo small", alt = "GCC-Stat Logo")
+          div(style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
+              tags$img(src = logo_black, style = "max-width: 120px; height: auto;", alt = "GCC-Stat Logo")
           ),
           div(class = "content-wrapper",
               div(class = "narrative-text",
@@ -139,8 +139,8 @@ ui <- page_fillable(
       # ====== SECTION 3: THE JOURNEY ======
       div(class = "story-section section-light", id = "section-journey",
           # Logo - SMALL BLACK (light background)
-          div(class = "logo-header",
-              tags$img(src = logo_black, class = "gccstat-logo small", alt = "GCC-Stat Logo")
+          div(style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
+              tags$img(src = logo_black, style = "max-width: 120px; height: auto;", alt = "GCC-Stat Logo")
           ),
           div(class = "content-wrapper reversed",
               div(class = "chart-container",
@@ -187,8 +187,8 @@ ui <- page_fillable(
       # ====== SECTION 4: KEY FACT ======
       div(class = "story-section section-gold", id = "section-fact",
           # Logo - SMALL BLACK (gold/light background)
-          div(class = "logo-header",
-              tags$img(src = logo_black, class = "gccstat-logo small", alt = "GCC-Stat Logo")
+          div(style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
+              tags$img(src = logo_black, style = "max-width: 120px; height: auto;", alt = "GCC-Stat Logo")
           ),
           div(class = "content-wrapper centered",
               div(class = "narrative-text",
@@ -209,8 +209,8 @@ ui <- page_fillable(
       # ====== SECTION 5: SECRET WEAPONS ======
       div(class = "story-section section-light", id = "section-strengths",
           # Logo - SMALL BLACK (light background)
-          div(class = "logo-header",
-              tags$img(src = logo_black, class = "gccstat-logo small", alt = "GCC-Stat Logo")
+          div(style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
+              tags$img(src = logo_black, style = "max-width: 120px; height: auto;", alt = "GCC-Stat Logo")
           ),
           div(class = "content-wrapper",
               div(class = "narrative-text",
@@ -233,8 +233,8 @@ ui <- page_fillable(
       # ====== SECTION 5B: RADAR COMPARISON ======
       div(class = "story-section section-light", id = "section-radar",
           # Logo - SMALL BLACK (light background)
-          div(class = "logo-header",
-              tags$img(src = logo_black, class = "gccstat-logo small", alt = "GCC-Stat Logo")
+          div(style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
+              tags$img(src = logo_black, style = "max-width: 120px; height: auto;", alt = "GCC-Stat Logo")
           ),
           div(class = "content-wrapper",
               div(class = "narrative-text",
@@ -266,8 +266,8 @@ ui <- page_fillable(
       # ====== SECTION 6: COUNTRY PROFILES ======
       div(class = "story-section section-light", id = "section-profiles",
           # Logo - SMALL BLACK (light background)
-          div(class = "logo-header",
-              tags$img(src = logo_black, class = "gccstat-logo small", alt = "GCC-Stat Logo")
+          div(style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
+              tags$img(src = logo_black, style = "max-width: 120px; height: auto;", alt = "GCC-Stat Logo")
           ),
           div(class = "content-wrapper reversed",
               div(class = "chart-container",
@@ -297,8 +297,8 @@ ui <- page_fillable(
       # ====== SECTION 7: GAP ANALYSIS ======
       div(class = "story-section section-light", id = "section-gap",
           # Logo - SMALL BLACK (light background)
-          div(class = "logo-header",
-              tags$img(src = logo_black, class = "gccstat-logo small", alt = "GCC-Stat Logo")
+          div(style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
+              tags$img(src = logo_black, style = "max-width: 120px; height: auto;", alt = "GCC-Stat Logo")
           ),
           div(class = "content-wrapper",
               div(class = "narrative-text",
@@ -326,8 +326,8 @@ ui <- page_fillable(
       # ====== SECTION 8: 2030 HORIZON ======
       div(class = "story-section section-dark", id = "section-future",
           # Logo - SMALL WHITE (dark background)
-          div(class = "logo-header",
-              tags$img(src = logo_white, class = "gccstat-logo small", alt = "GCC-Stat Logo")
+          div(style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
+              tags$img(src = logo_white, style = "max-width: 120px; height: auto;", alt = "GCC-Stat Logo")
           ),
           div(class = "content-wrapper",
               div(class = "narrative-text",
@@ -374,7 +374,7 @@ ui <- page_fillable(
       
       # ====== FOOTER ======
       div(class = "dashboard-footer", id = "section-footer",
-          tags$img(src = logo_white, class = "gccstat-logo", alt = "GCC-Stat Logo"),
+          tags$img(src = logo_white, style = "max-width: 150px; height: auto; margin-bottom: 1rem;", alt = "GCC-Stat Logo"),
           p(class = "footer-text", "GCC Statistical Center | IMD World Competitiveness Ranking 2025"),
           p(class = "footer-text", style = "margin-top: 0.5rem;", "Data story prepared by the Economic Statistics Department")
       )
