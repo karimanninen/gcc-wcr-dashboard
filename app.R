@@ -44,15 +44,316 @@ ui <- page_fillable(
     heading_font = font_google("Playfair Display")
   ),
   
-  # Include external CSS files
+  # Include embedded CSS (for reliable rendering on Posit Connect Cloud)
   tags$head(
-    tags$link(rel = "stylesheet", type = "text/css", href = "css/main.css"),
-    tags$link(rel = "stylesheet", type = "text/css", href = "css/themes.css"),
-    tags$link(rel = "stylesheet", type = "text/css", href = "css/components.css")
+    tags$style(HTML("
+      /* ============================================================================
+         EMBEDDED CSS - GCC Competitiveness Dashboard
+         ============================================================================ */
+      
+      /* CSS Variables */
+      :root {
+        --color-primary: #1a5276;
+        --color-secondary: #2980b9;
+        --color-accent: #B8A358;
+        --color-dark: #1a1a1a;
+        --color-light: #f8f9fa;
+        --color-text: #333333;
+      }
+      
+      /* Reset and base */
+      * { box-sizing: border-box; }
+      
+      /* Scrollytelling container */
+      .story-container {
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+        height: 100vh;
+        scroll-behavior: smooth;
+      }
+      
+      /* Story sections */
+      .story-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        scroll-snap-align: start;
+        position: relative;
+      }
+      
+      /* Section themes */
+      .section-hero {
+        background: linear-gradient(135deg, #1a5276 0%, #2980b9 100%);
+        color: white;
+      }
+      
+      .section-light {
+        background: #f8f9fa;
+      }
+      
+      .section-dark {
+        background: #1a5276;
+        color: white;
+      }
+      
+      .section-dark h2 { color: white; }
+      .section-dark p { color: rgba(255,255,255,0.9); }
+      
+      .section-gold {
+        background: linear-gradient(135deg, #B8A358 0%, #d4c17a 100%);
+        color: #1a1a1a;
+      }
+      
+      /* Content wrapper */
+      .content-wrapper {
+        max-width: 1400px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 3rem;
+        align-items: center;
+      }
+      
+      .content-wrapper.centered {
+        grid-template-columns: 1fr;
+        text-align: center;
+        max-width: 900px;
+      }
+      
+      .content-wrapper.reversed {
+        grid-template-columns: 1.5fr 1fr;
+      }
+      
+      /* Typography */
+      .narrative-text {
+        font-size: 1.2rem;
+        line-height: 1.8;
+      }
+      
+      .narrative-text h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+        color: #1a5276;
+      }
+      
+      .narrative-text .lead {
+        font-size: 1.4rem;
+        opacity: 0.9;
+      }
+      
+      .narrative-text p {
+        color: #333;
+        margin-bottom: 1rem;
+      }
+      
+      /* Hero section */
+      .hero-title {
+        font-size: 4rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: white !important;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.5rem;
+        opacity: 0.9;
+        margin-bottom: 2rem;
+      }
+      
+      /* Big number (key fact) */
+      .big-number {
+        font-size: 8rem;
+        font-weight: 700;
+        line-height: 1;
+        color: #1a5276;
+      }
+      
+      .big-number-label {
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-top: 1rem;
+      }
+      
+      /* Chart container */
+      .chart-container {
+        background: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      }
+      
+      /* Callout box */
+      .callout-box {
+        background: rgba(184, 163, 88, 0.15);
+        border-left: 4px solid #B8A358;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 0 8px 8px 0;
+      }
+      
+      .callout-box p { margin: 0; color: #333; }
+      
+      /* Control panel */
+      .control-panel {
+        background: #f0f0f0;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+      
+      .control-panel-title {
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+      }
+      
+      .control-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      
+      /* Recommendation cards */
+      .recommendation-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      }
+      
+      .recommendation-card h4 {
+        color: #1a5276;
+        margin-bottom: 0.5rem;
+      }
+      
+      .recommendation-card p {
+        margin: 0;
+        color: #333 !important;
+      }
+      
+      /* Country dots */
+      .country-dot {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin-right: 8px;
+      }
+      
+      .country-dot.uae { background: #000000; }
+      .country-dot.qatar { background: #99154C; }
+      .country-dot.saudi { background: #008035; }
+      .country-dot.bahrain { background: #E20000; }
+      .country-dot.oman { background: #a3a3a3; }
+      .country-dot.kuwait { background: #00B1E6; }
+      
+      /* Navigation dots */
+      .nav-dots {
+        position: fixed;
+        right: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      
+      .nav-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.4);
+        border: 2px solid white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .nav-dot:hover, .nav-dot.active {
+        background: #B8A358;
+        transform: scale(1.3);
+      }
+      
+      /* Scroll indicator */
+      .scroll-indicator {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: bounce 2s infinite;
+      }
+      
+      @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+        40% { transform: translateX(-50%) translateY(-10px); }
+        60% { transform: translateX(-50%) translateY(-5px); }
+      }
+      
+      /* Footer */
+      .dashboard-footer {
+        background: #1a1a1a;
+        color: white;
+        padding: 2rem;
+        text-align: center;
+        min-height: auto !important;
+      }
+      
+      .footer-text {
+        font-size: 0.9rem;
+        opacity: 0.7;
+        margin: 0;
+      }
+      
+      /* Responsive */
+      @media (max-width: 992px) {
+        .content-wrapper {
+          grid-template-columns: 1fr !important;
+          gap: 2rem;
+        }
+        .hero-title { font-size: 2.5rem; }
+        .big-number { font-size: 5rem; }
+        .nav-dots { right: 1rem; }
+      }
+    "))
   ),
   
-  # Include external JS file
-  tags$script(src = "js/scroll.js"),
+  # Include embedded JavaScript (for reliable rendering on Posit Connect Cloud)
+  tags$script(HTML("
+    $(document).ready(function() {
+      // Update active nav dot on scroll
+      $('.story-container').on('scroll', function() {
+        var sections = $('.story-section');
+        var scrollPos = $(this).scrollTop();
+        var windowHeight = $(window).height();
+        
+        sections.each(function(i) {
+          var top = $(this).position().top;
+          if (top <= windowHeight/2 && top > -windowHeight/2) {
+            $('.nav-dot').removeClass('active');
+            $('.nav-dot').eq(i).addClass('active');
+          }
+        });
+      });
+      
+      // Click nav dot to scroll to section
+      $('.nav-dot').on('click', function() {
+        var index = $(this).index();
+        var target = $('.story-section').eq(index);
+        $('.story-container').animate({
+          scrollTop: target.position().top + $('.story-container').scrollTop()
+        }, 800);
+      });
+      
+      // Scroll indicator click
+      $('.scroll-indicator').on('click', function() {
+        $('.nav-dot').eq(1).click();
+      });
+    });
+  ")),
   
   # Navigation dots
   div(class = "nav-dots",
