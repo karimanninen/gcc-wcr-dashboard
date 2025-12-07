@@ -27,8 +27,11 @@ source("R/charts.R")
 # ============================================================================
 # LOGO URLS
 # ============================================================================
-logo_white <- "https://gccstat.org/images/gccstat/logo/GCC-MAIN-01-WHITE.png"
-logo_black <- "https://gccstat.org/images/gccstat/logo/GCC-MAIN-01-BLACK.png"
+# logo_white <- "https://gccstat.org/images/gccstat/logo/GCC-MAIN-01-WHITE.png"
+# logo_black <- "https://gccstat.org/images/gccstat/logo/GCC-MAIN-01-BLACK.png"
+
+logo_white <- "images/GCC-MAIN-01-WHITE.png"
+logo_black <- "images/GCC-MAIN-01-BLACK.png"
 
 # ============================================================================
 # UI
