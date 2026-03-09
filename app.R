@@ -448,7 +448,7 @@ ui <- page_fillable(
       }
 
       /* RTL: logo positioning - flip to right side */
-      body.lang-ar .story-section > div:first-child[style*="left: 1.5rem"] {
+      body.lang-ar .logo-pos {
         left: auto !important;
         right: 1.5rem;
       }
@@ -460,7 +460,7 @@ ui <- page_fillable(
       }
 
       /* RTL: list items with country dots */
-      body.lang-ar ul[style*="list-style: none"] li {
+      body.lang-ar .country-list li {
         direction: rtl;
         text-align: right;
       }
@@ -642,7 +642,7 @@ server <- function(input, output, session) {
 
           # ====== SECTION 1: HERO ======
           div(class = "story-section section-hero", id = "section-hero",
-              div(style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
+              div(class = "logo-pos", style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
                   tags$img(src = logo_white, style = "max-width: 200px; height: auto;", alt = "GCC-Stat Logo")
               ),
               div(class = "content-wrapper centered",
@@ -662,7 +662,7 @@ server <- function(input, output, session) {
 
           # ====== SECTION 2: GLOBAL RANKING ======
           div(class = "story-section section-light", id = "section-ranking",
-              div(style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
+              div(class = "logo-pos", style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
                   tags$img(src = logo_black, style = "max-width: 120px; height: auto;", alt = "GCC-Stat Logo")
               ),
               div(class = "content-wrapper",
@@ -699,7 +699,7 @@ server <- function(input, output, session) {
 
           # ====== SECTION 3: THE JOURNEY ======
           div(class = "story-section section-light", id = "section-journey",
-              div(style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
+              div(class = "logo-pos", style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
                   tags$img(src = logo_black, style = "max-width: 120px; height: auto;", alt = "GCC-Stat Logo")
               ),
               div(class = "content-wrapper reversed",
@@ -734,7 +734,7 @@ server <- function(input, output, session) {
                   div(class = "narrative-text",
                       h2(t("sec3_title", lang)),
                       p(t("sec3_body", lang)),
-                      tags$ul(style = "list-style: none; padding: 0;",
+                      tags$ul(class = "country-list", style = "list-style: none; padding: 0;",
                               tags$li(style = "margin-bottom: 1rem;",
                                       span(class = "country-dot uae"),
                                       tags$strong(translate_country("UAE", lang)),
@@ -755,7 +755,7 @@ server <- function(input, output, session) {
 
           # ====== SECTION 4: KEY FACT ======
           div(class = "story-section section-gold", id = "section-fact",
-              div(style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
+              div(class = "logo-pos", style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
                   tags$img(src = logo_black, style = "max-width: 120px; height: auto;", alt = "GCC-Stat Logo")
               ),
               div(class = "content-wrapper centered",
@@ -774,7 +774,7 @@ server <- function(input, output, session) {
 
           # ====== SECTION 5: SECRET WEAPONS ======
           div(class = "story-section section-light", id = "section-strengths",
-              div(style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
+              div(class = "logo-pos", style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
                   tags$img(src = logo_black, style = "max-width: 120px; height: auto;", alt = "GCC-Stat Logo")
               ),
               div(class = "content-wrapper",
@@ -792,7 +792,7 @@ server <- function(input, output, session) {
 
           # ====== SECTION 5B: RADAR COMPARISON ======
           div(class = "story-section section-light", id = "section-radar",
-              div(style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
+              div(class = "logo-pos", style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
                   tags$img(src = logo_black, style = "max-width: 120px; height: auto;", alt = "GCC-Stat Logo")
               ),
               div(class = "content-wrapper",
@@ -829,7 +829,7 @@ server <- function(input, output, session) {
 
           # ====== SECTION 6: COUNTRY PROFILES ======
           div(class = "story-section section-light", id = "section-profiles",
-              div(style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
+              div(class = "logo-pos", style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
                   tags$img(src = logo_black, style = "max-width: 120px; height: auto;", alt = "GCC-Stat Logo")
               ),
               div(class = "content-wrapper reversed",
@@ -839,7 +839,7 @@ server <- function(input, output, session) {
                   div(class = "narrative-text",
                       h2(t("sec6_title", lang)),
                       p(t("sec6_body", lang)),
-                      tags$ul(style = "list-style: none; padding: 0;",
+                      tags$ul(class = "country-list", style = "list-style: none; padding: 0;",
                               tags$li(style = "margin-bottom: 1rem;",
                                       span(class = "country-dot uae"),
                                       tags$strong(translate_country("UAE", lang)),
@@ -860,7 +860,7 @@ server <- function(input, output, session) {
 
           # ====== SECTION 7: GAP ANALYSIS ======
           div(class = "story-section section-light", id = "section-gap",
-              div(style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
+              div(class = "logo-pos", style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
                   tags$img(src = logo_black, style = "max-width: 120px; height: auto;", alt = "GCC-Stat Logo")
               ),
               div(class = "content-wrapper",
@@ -881,7 +881,7 @@ server <- function(input, output, session) {
 
           # ====== SECTION 8: 2030 HORIZON ======
           div(class = "story-section section-dark", id = "section-future",
-              div(style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
+              div(class = "logo-pos", style = "position: absolute; top: 1.5rem; left: 1.5rem; z-index: 100;",
                   tags$img(src = logo_white, style = "max-width: 120px; height: auto;", alt = "GCC-Stat Logo")
               ),
               div(class = "content-wrapper",
