@@ -421,9 +421,102 @@ ui <- page_fillable(
         flex-direction: row-reverse;
       }
 
+      /* RTL: body-level line-height for Arabic */
+      body.lang-ar {
+        line-height: 1.8;
+      }
+
+      /* RTL: generic heading coverage (h1-h6) */
+      body.lang-ar h1,
+      body.lang-ar h2,
+      body.lang-ar h3,
+      body.lang-ar h4,
+      body.lang-ar h5,
+      body.lang-ar h6 {
+        direction: rtl;
+        font-family: 'Cairo', 'Tajawal', Arial, sans-serif;
+        font-weight: 600;
+        letter-spacing: 0;
+      }
+
+      /* RTL: generic text elements */
+      body.lang-ar p,
+      body.lang-ar li,
+      body.lang-ar span,
+      body.lang-ar strong {
+        font-family: 'Cairo', 'Tajawal', Arial, sans-serif;
+      }
+
+      /* RTL: logo positioning - flip to right side */
+      body.lang-ar .story-section > div:first-child[style*="left: 1.5rem"] {
+        left: auto !important;
+        right: 1.5rem;
+      }
+
+      /* RTL: lang toggle button moves to left */
+      body.lang-ar .lang-toggle-btn {
+        right: auto;
+        left: 1.5rem;
+      }
+
+      /* RTL: list items with country dots */
+      body.lang-ar ul[style*="list-style: none"] li {
+        direction: rtl;
+        text-align: right;
+      }
+
+      /* RTL: shinyWidgets pickerInput */
+      body.lang-ar .bootstrap-select .filter-option-inner-inner,
+      body.lang-ar .bootstrap-select .dropdown-item,
+      body.lang-ar .bootstrap-select .bs-actionsbox .btn-group button,
+      body.lang-ar .bootstrap-select .dropdown-header {
+        direction: rtl;
+        text-align: right;
+        font-family: 'Cairo', 'Tajawal', Arial, sans-serif;
+      }
+
+      /* RTL: shinyWidgets switchInput - keep LTR layout */
+      body.lang-ar .bootstrap-switch {
+        direction: ltr;
+      }
+
+      /* RTL: selectize inputs */
+      body.lang-ar .selectize-input,
+      body.lang-ar .selectize-dropdown,
+      body.lang-ar .selectize-dropdown-content .option {
+        direction: rtl;
+        text-align: right;
+        font-family: 'Cairo', 'Tajawal', Arial, sans-serif;
+      }
+
+      /* RTL: chart container hints/labels */
+      body.lang-ar .chart-container > p {
+        direction: rtl;
+        text-align: right;
+        font-family: 'Cairo', 'Tajawal', Arial, sans-serif;
+      }
+
       /* Plotly charts stay LTR internally */
       body.lang-ar .plotly-graph-div {
         direction: ltr !important;
+      }
+
+      /* Plotly chart titles get Arabic font */
+      body.lang-ar .plotly-chart-title,
+      body.lang-ar .js-plotly-plot .plotly .gtitle {
+        font-family: 'Cairo', 'Tajawal', Arial, sans-serif !important;
+      }
+
+      /* RTL: recommendation cards in section 8 */
+      body.lang-ar .recommendation-card {
+        direction: rtl;
+        text-align: right;
+      }
+
+      /* RTL: big number section stays centered */
+      body.lang-ar .big-number {
+        direction: ltr; /* numbers stay LTR */
+        text-align: center;
       }
 
       /* Responsive */
