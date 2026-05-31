@@ -962,7 +962,8 @@ server <- function(input, output, session) {
   # Chart 1: World Ranking
   output$chart_world_ranking <- renderPlotly({
     lang <- current_lang()
-    create_world_ranking_chart(wcr_data(), gcc_method = gcc_method(), lang = lang)
+    create_world_ranking_chart(wcr_data(), gcc_method = gcc_method(), lang = lang) %>%
+      apply_rtl(lang, "vbar")
   })
 
   # Method explanation text
@@ -990,22 +991,26 @@ server <- function(input, output, session) {
     if(is.null(selected) || length(selected) == 0 || length(selected) == 7) {
       selected <- "All"
     }
-    create_trajectory_chart(wcr_data(), highlight = selected, lang = lang)
+    create_trajectory_chart(wcr_data(), highlight = selected, lang = lang) %>%
+      apply_rtl(lang, "time")
   })
 
   # Chart 3: Dimensions
   output$chart_dimensions <- renderPlotly({
-    create_dimensions_chart(wcr_data(), lang = current_lang())
+    create_dimensions_chart(wcr_data(), lang = current_lang()) %>%
+      apply_rtl(current_lang(), "hbar")
   })
 
   # Chart 4: Heatmap
   output$chart_heatmap <- renderPlotly({
-    create_heatmap_chart(wcr_data(), lang = current_lang())
+    create_heatmap_chart(wcr_data(), lang = current_lang()) %>%
+      apply_rtl(current_lang(), "heatmap")
   })
 
   # Chart 5: Gap Analysis
   output$chart_gap <- renderPlotly({
-    create_gap_chart(wcr_data(), gcc_method = gcc_method(), lang = current_lang())
+    create_gap_chart(wcr_data(), gcc_method = gcc_method(), lang = current_lang()) %>%
+      apply_rtl(current_lang(), "hbar")
   })
 
   # Chart 6: Radar Comparison
@@ -1015,7 +1020,8 @@ server <- function(input, output, session) {
       selected_country = input$radar_country,
       gcc_method = gcc_method(),
       lang = current_lang()
-    )
+    ) %>%
+      apply_rtl(current_lang(), "polar")
   })
 
   # Radar comparison summary
