@@ -45,6 +45,11 @@ Follows the same pattern as the GCCEII dashboard:
 - **`renderUI("main_ui")`** rebuilds the entire story on language change
 - **RTL support** via `body.lang-ar` CSS class set by JS
   `sendCustomMessage("setLang")`; all RTL styles are embedded in `app.R`
+- **RTL on plots**: `apply_rtl(p, lang, kind)` in `R/charts.R` mirrors every
+  chart in Arabic (reverse categorical/time axis, value axis to the right,
+  right-aligned title/legend/hover; radars sweep clockwise). Applied at each
+  `renderPlotly` call site in `app.R` with the chart's kind
+  (vbar/hbar/time/heatmap/polar).
 - **Chart functions** all accept a `lang` parameter for translated titles,
   axis labels, dimension names, country names, and hover text
 - Default language is **English** (`reactiveVal("en")`)

@@ -11,6 +11,38 @@ library(tidyr)
 library(scales)
 
 # ============================================================================
+# RTL HELPER — mirror a plotly chart when the language is Arabic
+# ============================================================================
+# Successive plotly layout() calls deep-merge, so this composes on top of each
+# chart's own layout. `kind`:
+#   "vbar"    categorical x / value y  -> reverse x order, value axis on right
+#   "hbar"    value x / category y     -> reverse value axis, categories on right
+#   "time"    numeric time x / value y -> reverse x (time flows right->left), y right
+#   "heatmap" categorical x & y        -> reverse x, category axis on right
+#   "polar"   radar                    -> sweep categories clockwise (mirrored)
+apply_rtl <- function(p, lang, kind = "vbar") {
+  if (is.null(lang) || lang != "ar") return(p)
+
+  p <- p %>% layout(
+    title      = list(x = 0.98, xanchor = "right"),
+    legend     = list(xanchor = "right", x = 1, traceorder = "reversed"),
+    hoverlabel = list(align = "right")
+  )
+
+  if (kind %in% c("vbar", "time", "hbar", "heatmap")) {
+    p <- p %>% layout(
+      xaxis = list(autorange = "reversed"),
+      yaxis = list(side = "right")
+    )
+  } else if (kind == "polar") {
+    p <- p %>% layout(
+      polar = list(angularaxis = list(direction = "clockwise"))
+    )
+  }
+  p
+}
+
+# ============================================================================
 # CHART 1: WORLD RANKING BAR CHART (ALL COUNTRIES WITH SLIDER)
 # ============================================================================
 
