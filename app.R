@@ -918,6 +918,25 @@ server <- function(input, output, session) {
               )
           ),
 
+          # ====== CROSS-LINK CTA -> IMD Competitiveness dashboard ======
+          # The Competitiveness Pathway's second, interactive surface (/gcc-imd/).
+          div(class = "story-section section-gold", id = "section-explore",
+              style = "text-align: center;",
+              div(class = "content-wrapper",
+                  h2(style = "color: #1a1a1a;", t("cta_explore_title", lang)),
+                  p(class = "lead", style = "color: #333; max-width: 720px; margin: 1rem auto 2rem auto;",
+                    t("cta_explore_body", lang)),
+                  tags$a(
+                    href = "/gcc-imd/", target = "_blank",
+                    style = paste(
+                      "display: inline-block; background: #1a1a1a; color: #fff;",
+                      "padding: 1rem 2.5rem; border-radius: 50px; font-weight: 600;",
+                      "text-decoration: none; letter-spacing: 1px;"),
+                    t("cta_explore_btn", lang)
+                  )
+              )
+          ),
+
           # ====== FOOTER ======
           div(class = "dashboard-footer", id = "section-footer",
               tags$img(src = logo_white, style = "max-width: 150px; height: auto; margin-bottom: 1rem;", alt = "GCC-Stat Logo"),

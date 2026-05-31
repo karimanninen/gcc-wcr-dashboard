@@ -307,6 +307,22 @@
   ),
 
   # ---------------------------------------------------------------------------
+  # Cross-link to the IMD Competitiveness dashboard (Competitiveness Pathway)
+  # ---------------------------------------------------------------------------
+  cta_explore_title = list(
+    en = "Want to explore the numbers yourself?",
+    ar = "\u062a\u0631\u063a\u0628 \u0641\u064a \u0627\u0633\u062a\u0643\u0634\u0627\u0641 \u0627\u0644\u0623\u0631\u0642\u0627\u0645 \u0628\u0646\u0641\u0633\u0643\u061f"
+  ),
+  cta_explore_body = list(
+    en = "Open the interactive IMD Competitiveness dashboard to filter the full ranking, compare countries, and dig into all four factors and twenty sub-factors.",
+    ar = "\u0627\u0641\u062a\u062d \u0644\u0648\u062d\u0629 \u0627\u0644\u062a\u0646\u0627\u0641\u0633\u064a\u0629 \u0627\u0644\u062a\u0641\u0627\u0639\u0644\u064a\u0629 IMD \u0644\u062a\u0635\u0641\u064a\u0629 \u0627\u0644\u062a\u0635\u0646\u064a\u0641 \u0627\u0644\u0643\u0627\u0645\u0644 \u0648\u0645\u0642\u0627\u0631\u0646\u0629 \u0627\u0644\u062f\u0648\u0644 \u0648\u0627\u0633\u062a\u0643\u0634\u0627\u0641 \u0627\u0644\u0639\u0648\u0627\u0645\u0644 \u0627\u0644\u0623\u0631\u0628\u0639\u0629 \u0648\u0627\u0644\u0639\u0648\u0627\u0645\u0644 \u0627\u0644\u0641\u0631\u0639\u064a\u0629 \u0627\u0644\u0639\u0634\u0631\u064a\u0646."
+  ),
+  cta_explore_btn = list(
+    en = "Open the IMD Competitiveness Dashboard",
+    ar = "\u0627\u0641\u062a\u062d \u0644\u0648\u062d\u0629 \u0627\u0644\u062a\u0646\u0627\u0641\u0633\u064a\u0629 IMD"
+  ),
+
+  # ---------------------------------------------------------------------------
   # Navigation dot tooltips
   # ---------------------------------------------------------------------------
   nav_intro = list(en = "Introduction", ar = "\u0627\u0644\u0645\u0642\u062f\u0645\u0629"),
